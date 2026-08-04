@@ -128,6 +128,10 @@ async def monitor_loop(app_context: AppContext, file_watcher: FileWatcher, attac
                     if vm_name:
                         vms_restarted.append(vm_name)
 
+
+            # Debug
+            log_detected_devices(app_context)
+
             # Check non-USB evdev devices for restarted VMs
             await attach_connected_evdev(app_context)
             # Check PCI devices for restarted VMs
